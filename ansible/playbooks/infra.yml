@@ -1,0 +1,5 @@
+---
+- import_playbook: base.yml
+- import_playbook: docker.yml
+#- import_playbook: deploy.yml
+

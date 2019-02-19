@@ -1,0 +1,8 @@
+---
+- name: add appuser in to docker group
+  user:
+    name: kerama
+    groups: docker
+    append: yes
+  tags: install
+

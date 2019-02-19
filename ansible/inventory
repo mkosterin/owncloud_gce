@@ -1,0 +1,5 @@
+#!/bin/bash
+cd ../terraform
+terraform-inventory -list terraform.tfstate
+cd ../ansible
+

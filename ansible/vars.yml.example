@@ -1,0 +1,8 @@
+---
+OWNCLOUD_DOMAIN: "example.org"
+ADMIN_EMAIL: "admin@example.org"
+ADMIN_USERNAME: "admin"
+ADMIN_PASSWORD: "admin"
+SQL_USERNAME: "owncloud"
+SQL_PASSWORD: "owncloud"
+SQL_ROOT_PASSWORD: "superpass"

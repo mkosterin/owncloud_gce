@@ -1,0 +1,8 @@
+project = "project-id"
+zone = "zone in GCE"
+machineType = "g1-small"
+docker_disk_image = "ubuntu-1810-cosmic-v20190204"
+public_key_path = "~/.ssh/key.pub"
+private_key_path = "~/.ssh/key"
+ssh_user_name="name"
+

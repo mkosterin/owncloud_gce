@@ -1,0 +1,41 @@
+---
+- name: deploy application
+  hosts: all
+  vars_files:
+    - ../vars.yml
+  gather_facts: True
+  tasks:
+    - name: copy docker-compose.yml
+      template:
+        src: docker-compose.yml.j2
+        dest: ~/docker-compose.yml
+    - name: copy .env
+      template:
+        src: compose.env.j2
+        dest: ~/.env
+    - name: create frontend directories
+      file:
+        path: ~/data/nginx
+        state: directory
+    - name: create certbot directories (conf)
+      file:
+        path: ~/data/certbot/conf
+        state: directory
+    - name: create certbot directories (www)
+      file:
+        path: ~/data/certbot/www
+        state: directory
+    - name: copy magic script to init certbot
+      template:
+        src: init-letsencrypt.sh.j2
+        dest: ~/init-letsencrypt.sh
+        mode: 0770
+    - name: copy NGINX config
+      template:
+        src: app.conf.j2
+        dest: ~/data/nginx/app.conf
+    - name: execute docker-compose instructions
+      command: docker-compose up -d
+      args:
+        chdir: ~/
+
